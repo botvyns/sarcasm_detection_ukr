@@ -18,9 +18,12 @@ with open('model_hosting/rf_classifier_param.pkl', 'rb') as f:
 
 hf_model, tokenizer = load_roberta()
 
+text_area_count = 0  # Counter for text area widgets
+    
 while True:
-    # Text input box
-    text_input = st.text_area("Enter your text here:", "")
+    text_area_count += 1
+    # Text input box with unique key
+    text_input = st.text_area(f"Enter your text {text_area_count}:", key=f"text_area_{text_area_count}")
 
     # Preprocess text before passing to models
     text_mod, lemmatized = preprocess_text(text_input)
