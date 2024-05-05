@@ -10,10 +10,10 @@ def identity_tokenizer(text):
 with open('model_hosting/tfidf_vectorizer.pkl', 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
 
-with open('lr_classifier_default.pkl', 'rb') as f:
+with open('model_hosting/lr_classifier_default.pkl', 'rb') as f:
     lr_model = pickle.load(f)
 
-with open('rf_classifier_param.pkl', 'rb') as f:
+with open('model_hosting/rf_classifier_param.pkl', 'rb') as f:
     rf_model = pickle.load(f)
 
 hf_model, tokenizer = load_roberta()
