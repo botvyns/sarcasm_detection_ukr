@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import dill as pickle
 from utils_models import load_roberta, predict_roberta, predict_lr_rf
 from text_preprocessing import preprocess_text
 
