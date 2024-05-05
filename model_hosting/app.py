@@ -7,7 +7,7 @@ def identity_tokenizer(text):
   return text
 
 # Load the saved vectorizer, logistics regression, random forest, roberta models
-with open('tfidf_vectorizer.pkl', 'rb') as f:
+with open('model_hosting/tfidf_vectorizer.pkl', 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
 
 with open('lr_classifier_default.pkl', 'rb') as f:
