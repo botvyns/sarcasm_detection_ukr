@@ -18,10 +18,7 @@ with open('model_hosting/rf_classifier_param.pkl', 'rb') as f:
 
 hf_model, tokenizer = load_roberta()
 
-# Streamlit app
-def main():
-    st.title('Text Classification App')
-
+while True:
     # Text input box
     text_input = st.text_area("Enter your text here:", "")
 
@@ -29,18 +26,21 @@ def main():
     text_mod, lemmatized = preprocess_text(text_input)
     
     # Button to trigger predictions
-    if st.button("Predict"):
+    if st.button("Класифікувати"):
         # Predictions from RoBERTa model
         roberta_pred = predict_roberta(hf_model, tokenizer, text_mod)
         # Predictions from Logistic Regression and Random Forest models
         lr_prediction = predict_lr_rf(lr_model, tfidf_vectorizer, lemmatized)
-
         rf_prediction = predict_lr_rf(rf_model, tfidf_vectorizer, lemmatized)
 
         # Display predictions
         st.write("RoBERTa Prediction:", roberta_pred)
         st.write("Logistic Regression Prediction:", lr_prediction)
         st.write("Random Forest Prediction:", rf_prediction)
+
+    # Button to add another text input
+    if st.button("Завершити"):
+        break
 
 if __name__ == "__main__":
     main()
