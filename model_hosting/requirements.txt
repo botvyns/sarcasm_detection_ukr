@@ -5,3 +5,4 @@ stanza
 nltk
 transformers
 torch
+dill
